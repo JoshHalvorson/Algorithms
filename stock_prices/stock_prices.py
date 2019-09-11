@@ -3,11 +3,8 @@
 import argparse
 
 def find_max_profit(prices):
-  current_min_price_so_far = prices[0]
   max_profit_so_far = 0
   for p in prices:
-    if p < current_min_price_so_far:
-      current_min_price_so_far = p
     for i in reversed(range(prices.index(p))):
       if max_profit_so_far == 0:
         max_profit_so_far = p - prices[i]
