@@ -5,12 +5,14 @@ import math
 def recipe_batches(recipe, ingredients):
   batches = 0
   while True:
-    for k,v in ingredients.items():
-      if v >= recipe.get(k):
-        v -= recipe.get(k)
-        ingredients[k] = v
+    for k,v in recipe.items():
+      if ingredients.get(k) != None:
+        if v <= ingredients.get(k):
+          ingredients[k] -= v
+        else:
+          return batches
       else:
-        return batches
+        return 0
     batches += 1
   return batches
 
