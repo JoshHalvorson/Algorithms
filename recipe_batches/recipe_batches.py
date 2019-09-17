@@ -3,7 +3,18 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  batches = 0
+  while True:
+    for k,v in recipe.items():
+      if ingredients.get(k) != None:
+        if v <= ingredients.get(k):
+          ingredients[k] -= v
+        else:
+          return batches
+      else:
+        return 0
+    batches += 1
+  return batches
 
 
 if __name__ == '__main__':
